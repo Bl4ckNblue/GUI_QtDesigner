@@ -15,12 +15,12 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
                                'Categoria': '', 
                                'Hobbies': ''
                                }
-    
+        
     def guardar(self):
         
         nombre = self.txtNombre.text()
         apellido = self.txtApellido.text()
-        
+       
         if self.rbtnMale.isChecked():
             sexo = 'Masculino'
         elif self.rbtnFemale.isChecked():
@@ -51,7 +51,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.DatosGuardados ['Categoria'] = categoria  
         self.DatosGuardados ['Hobbies'] = hobbies
         
-        self.txtMostrarDatos.appendPlainText('Alumno : \n')
+        self.txtMostrarDatos.appendPlainText('\nAlumno : ')
         for key, value in self.DatosGuardados.items():
             self.txtMostrarDatos.appendPlainText(f"{key} : {value}")
         
@@ -67,11 +67,10 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.checkBailar.setChecked(False)
         self.checkCantar.setChecked(False)
         self.checkCaminar.setChecked(False)
-
+    
     def limpiar (self):
         self.txtMostrarDatos.setPlainText('')
-        
-        
+               
 if __name__=="__main__":
     app = QtWidgets.QApplication([])
     window = MainWindow()
